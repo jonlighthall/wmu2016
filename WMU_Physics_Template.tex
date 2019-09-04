@@ -1,0 +1,44 @@
+%% See the file first.tex to enter author and title information.
+\input{first}
+%% Enter the degree type as an option for the thesis document class.  The following options are 
+%  recognized.  This is the degree that will appear on the Abstract and the Title Page.
+%  [ma]   Master of Arts
+%  [mm]   Master of Music
+%  [ms]   Master of Science
+%  [msec] Master of Science in Engineering (Computer)
+%  [msee] Master of Science in Engineering (Electrical)
+%  [msei] Master of Science in Engineering (Industrial)
+%  [msem] Master of Science in Engineering (Mechanical)
+%  [eds]  Specialist in Education
+%  [edd]  Doctor of Education
+%  [phd]  Doctor of Philosophy
+
+%% Optional front matter entries
+%  [abstract] Include Abstract page(s)
+%  [ackno]    Include Acknowledgments page(s)
+%  [listtab]  Include List of Figures (required if figures are used)
+%  [listfig]  Include List of Tables (required if figures are used)
+
+\documentclass[phd,abstract,ackno,listtab,listfig]{thesis}
+
+\input{packages} %% Load optional packages
+\input{macros}   %% Load macros
+
+%% Spacing-----------------------%-------------------------------
+%% The default document line spacing is single-space.  Double spacing is typical for thesis 
+%  submission.  Two types of double spacing are available: 'typewriter' double spacing, which 
+%  leaves a full line of space between two lines of text; and 'word processor' double spacing, 
+%  which separates each line of text by about about 1.6 lines.  Set double spacing below.  
+
+%\setstretch{2} %typewriter doublesace
+ \doublespacing %standard word processor doublespace
+
+
+\begin{document}
+\VerbatimFootnotes
+\frontmatter
+\mainmatter
+%% Files to include--------------%-------------------------------
+
+\input{back_matter}
+\end{document}

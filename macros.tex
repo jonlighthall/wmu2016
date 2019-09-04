@@ -1,0 +1,14 @@
+%% Set the specific formatting of the "Mev per nucleon" units symbol
+\newcommand{\AMeV}{A\,MeV}
+%\renewcommand{\AMeV}{MeV/u}
+%\renewcommand{\AMeV}{MeV/A}
+\renewcommand{\AMeV}{MeV/$u$}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} %sets footnote marks to symbols
+\newdateformat{photodate}{\shortmonthname[\THEMONTH].~\THEYEAR}
+
+\providecommand{\texorpdfstring}[2]{#1} %provided in case hyperref is not used
+
+\newcommand{\Chapter}[1]{\chapter[\texorpdfstring{\MakeUppercase{#1}}{#1}]{#1}}
+
+\hyphenation{feed-through feed-throughs ejec-tile ejec-tiles cor-re-spond-ing sol-en-oid-al}

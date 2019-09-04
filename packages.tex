@@ -1,0 +1,81 @@
+%%-------------------Emacs PostScript "pretty-print" page width (97 columns)-------------------%%
+%% Math packages-----------------%-------------------------------
+\usepackage{amsmath}
+%\usepackage{amssymb,mathrsfs}%provides symbols and script math (conflicts with mathdesign fonts)
+
+%% Text packages-----------------%-------------------------------
+\usepackage{textcomp,lmodern}%for special symbols 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}%modern font encoding
+
+%% The default font is Latin Modern (replaces Computer Modern).  Following are a number of fonts 
+%  with extensive math and symbol support.  To use a particular font, uncomment the associated
+%  line.  If mathdesign fonts are used, the amssymb and mathrsfs packages should not be loaded
+%  independently.
+
+%% PostScript Fonts--------------%-------------------------------
+%\usepackage[osf]{mathpazo}  %URW Palladio (A Palatino/Book Antiqua clone), an old style serif
+%\usepackage{mathptmx}       %URW Nimbus Roman (A Times clone), a transitional serif typefaces
+%\usepackage[scaled]{helvet} %URW Nimbus Sans (A Helvetica clone), a sans-serif typeface 
+%\renewcommand*\familydefault{\sfdefault} % set base font (body text) to sans serif
+
+%% Math Design Fonts-------------%-------------------------------
+%\usepackage[urw-garamond]{mathdesign}			%Old style serif typeface
+% \usepackage[adobe-utopia]{mathdesign}			%Transitional serif typefaces (professional)
+%\usepackage[bitstream-charter]{mathdesign}	%Glyphic serif typeface optimized for printing
+
+%% The following lines of code assume that the graphics files are .eps files located in a
+%  directory named Figures.  Black and white versions of color graphics files end in _bw.  For
+%  example, the two files
+%			/Figures/foo.eps
+%			/Figures/foo_bw.eps
+%  may be included with a single command, e.g., \includegraphics{fig2}.  The black and white
+%  figures are then selected by uncommenting the declare graphics extension rule below.
+
+%% Figure packages---------------%-------------------------------
+\usepackage{ifpdf}
+\ifpdf
+	\usepackage[pdftex]{graphicx}
+	\usepackage[update]{epstopdf}
+	%May need to include -enable-write18 in command line arguments to make PDF figures (deprecated)
+	\epstopdfDeclareGraphicsRule{.eps}{pdf}{.pdf}{ps2pdf -dEPSCrop #1 \OutputFile}
+	\epstopdfDeclareGraphicsRule{_bw.eps}{pdf}{_bw.pdf}{ps2pdf -dEPSCrop #1 \OutputFile}
+	\epstopdfsetup{suffix=}%
+\else
+	\usepackage{graphicx}	
+	\usepackage[all,light]{draftcopy}% Places "DRAFT" on each page.  Only works with PS output.	
+\fi
+%\DeclareGraphicsExtensions{_bw.eps,.eps}	%Turn on/off BW figures, assumes BW figures end in _bw.eps
+\graphicspath{{Figures/}}%set graphics path(s) here
+
+%% Table packages----------------%-------------------------------
+\usepackage{dcolumn}% Align table columns on decimal point
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{,}{D{,}{,}{-1}}
+\newcolumntype{)}{D{)}{)}{-1}}
+
+\renewcommand{\arraystretch}{1.3} % enlarge line spacing
+
+\usepackage{multirow}
+
+%% Formatting packages-----------%-------------------------------
+\usepackage{hyperref}
+\hypersetup{%
+	pdfstartpage=1,                %Opening page number (absolute)
+	pdfstartview=FitV,             %Fits the horiz. width in the window (FitV for vertical)
+	%pdfstartview={XYZ null null 1},%view page at 100%
+	bookmarksopen=true,            %Displays Bookmarks in the Navigation Panel
+	bookmarksopenlevel=0,          %\maxdimen all levels, 0 chapters, 1 sections
+	bookmarksnumbered=true,        %Numbers bookmarks with section numbers
+	final=true,                    %keeps hyperref features in draft mode
+	colorlinks=true,               %colors the links instead of using boxes
+	urlcolor=blue,                 %makes URL hyperlinks blue (instead of pink)
+	linkcolor=black,               %makes internal links black (instead of red)
+	citecolor=black,               %makes citation links black (instead of green)
+}
+\usepackage{fancyvrb}%allows verbatim in footnotes (and makes hyperref work with footnotes)
+\usepackage{indentfirst}%indents first paragraph of each section
+
+%% Formatting packages-----------%-------------------------------
+\usepackage[numbers,sort&compress]{natbib}

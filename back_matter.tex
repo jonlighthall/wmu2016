@@ -1,0 +1,20 @@
+%%-------------------Emacs PostScript "pretty-print" page width (97 columns)-------------------%%
+%% Back matter
+
+%% References--------------------%-------------------------------
+\renewcommand{\bibname}{References}%Set the name of the bibliography here
+\bibliographystyle{bib_files/elsarticle-aps5}
+\clearpage
+\phantomsection %Ordering here is important; place this line before calling \bibliography{}...
+\bibliography{bib_files/bib_link}
+\addcontentsline{toc}{chapter}{\texorpdfstring{\uppercase{\bibname}}{\bibname}}%...and place this line after calling \bibliography{}
+
+%% Appendix----------------------%-------------------------------
+%  If there is only one appendix, use the command \oneappendix to have one un-numbered appendix. 
+%  If there two or more appendices, use the command \twoappendix to insert an Appendices page 
+%  and to start alphabetic chapter enumeration.  Tables and figures included in the appendices 
+%  do not need to be included in List of Tables or List of Figures.
+%\oneappendix
+%\autotext{2}{10}{2}
+%\twoappendix
+%\autotext{4}{10}{2}
